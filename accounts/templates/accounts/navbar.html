@@ -1,0 +1,74 @@
+{% load static %}
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+  .hello-log{
+    margin-right: 20px;
+    background-color: #009970;
+    color: #fff;
+    font-size: 18px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 700;
+  }
+  .hello-log:hover {
+    background-color: #00b383;
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+  }
+  .nav-link{
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 500;
+    position: relative;
+  }
+  .nav-link:hover, .nav-link.active {
+    color: □#000;
+  }
+  .nav-link::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: #009970;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+  .nav-link:hover::before, .nav-link.active::before{
+    width: 100%;
+    visibility: visible;
+  }
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!--<img class="logo" src="{% static 'images/final logo.png' %}" alt="">-->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+        <li class="nav-item">
+          <a class="nav-link mx-lg-2" href="{% url 'homepage' %}">Home Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-lg-2" href="{% url 'products' %}">Disciplinary Measures</a>
+        </li>
+      </ul>
+    </div>
+
+    <span class="hello-msg">Hello, {{request.user}}</span>
+    <span ><a class="hello-log" href="{% url 'logout' %}">Log Out</a></span>
+
+  </nav>

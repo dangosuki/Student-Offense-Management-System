@@ -1,0 +1,93 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5 style="font-size: 24px; font-weight: 700; line-height: 34px;">St. Charles</h5>
+            <h5>{{students.name}}</h5>
+            <hr>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'charlescreate_offense' students.id %}">Add Offense</a>
+            <br><br>
+
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Basic Information</h5>
+            <hr>
+            <p style="padding: 0.01px">Guardian: {{students.guardian}}</p>
+            <p style="padding: 0.01px">Email: {{students.email}}</p>
+            <p style="padding: 0.01px">Phone: {{students.phone}}</p>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Total Offenses</h5>
+            <hr>
+            <h1 style="text-align: center;padding: 32px">{{offense_count}}</h1>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<div class="row">
+    <!--<div class="col">
+        <div class="card card-body">
+            <form method="get">
+                {{myFilter.form}}
+
+            <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+
+        </div>
+    </div>-->
+    
+</div>
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Offense</th>
+                    <th>Category</th>
+                    <th>Note</th>
+                    <th>Action Given</th>
+                    <th>Date Committed</th>
+                    <!--<th>Status</th>-->
+                    <th>Update</th>
+                    <th>Remove</th>
+                </tr>
+
+                {% for offense in offenses %}
+                <tr>
+                    <td>{{offense.offense}}</td>
+                    <td>{{offense.category}}</td>
+                    <td>{{offense.note}}</td>
+                    <td>{{offense.action_given}}</td>
+                    <td>{{offense.date_created}}</td>
+                    <!--<td>{{offense.product.category}}</td>-->
+                    <td><a class="btn btn-sm btn-info" href="{% url 'charlesupdate_offense' offense.id %}">Update</a></td>
+
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'charlesdelete_offense' offense.id %}">Delete</a></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<button onclick="window.print()">Print Copy</button>
+
+
+
+{% endblock %}

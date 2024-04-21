@@ -1,0 +1,490 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOMS Homepage</title>
+
+  <link rel="stylesheet"
+  href="https://unkpg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="preconnect" href="https: //fonts. googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?
+family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    section{
+    padding: 80px 13%;
+  }
+
+.body {
+  background-image: url("/static/images/bgrc.png");
+    background-size: cover;
+		background-position: center;
+}
+.home{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: url(/static/images/rc1.jpg);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: center;
+}
+.home-text h1{
+    font-size: var(--big-font);
+    margin: 15px 0 15px;
+    color: #e9ecef;
+    -webkit-text-stroke: 3px black;
+}
+.home-text h6{
+    color: #e9ecef;
+    font-size: 18px;
+    font-weight: 600;
+    Letter-spacing: 2px;
+}   
+.home-text p{
+    color: var( -- second-color);
+    font-size: var( -- p-font);
+    font-weight: 500;
+    margin-bottom: 48px;
+}
+.latter form {
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    
+}
+.latter form input:first-child{
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    padding: 16px 140px 16px 15px;
+    border: 2px solid var( -- main-color);
+    border-radius: 30px;
+}
+.latter form input:last-child{
+    position: absolute;
+    display: inline-block;
+    border: none;
+    outline: none;
+    background: var( -- main-color);
+    color: var( -- bg-color);
+    padding: 16px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    top: 2px;
+    right: 1px;
+}
+.home-img img{
+    height: auto;
+    width: 100%;
+}
+header.sticky{
+    background: var( -- bg-color);
+    padding: 12px 13%;
+    box-shadow: 0px 4px 15px rgb(0 0 0 / 8%);
+}
+.container{
+    padding: 70px 13%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 1.5rem;
+    align-items: center;
+    cursor: pointer;
+    
+}
+.container-box{
+  display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    border: 1px solid #e9ecef;
+    border-radius: 20px;
+    padding: 20px 30px;
+    box-shadow: -11.729px -11.729px 32px rgb(255 255 255 / 15%);
+    transition: all .40s ease;
+}
+.container-box:hover{
+    transform: translateY(-15px);
+}
+.container-text h4{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.container-text p{
+    font-size: var( -- p-font);
+    color: var( -- second-color);
+    font-weight: 500;
+}
+.center-text{
+    text-align: center;
+}
+.center-text h5{
+    color: black;
+    font-size: 70px;
+    font-weight: 1000px;
+    Letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.center-text h2{
+    font-size: var(--h2-font);
+    line-height: 1.2;
+}
+.categories-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 1.5rem;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 4rem;
+}
+.box img{
+    height: auto;
+    width: 110px;
+    margin-bottom: 20px;
+}
+.box{
+    padding: 25px 60px;
+    border: 1px solid #e9ecef;
+    border-radius: 20px;
+    padding: 20px 30px;
+    box-shadow: -11.729px -11.729px 32px rgb(255 255 255 / 15%);
+    transition: all .40s ease;
+}
+.box:hover{
+    transform: translateY(-15px);
+}
+.box h3{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 1.3;
+    transition: all .40s ease;
+}
+.box p{
+    font-size: var(--p-font);
+    color: var(--second-color);
+    font-weight: 500;
+}
+.main-btn{
+    text-align: center;
+    margin-top: 5rem;
+}
+.btn{
+    display: inline-block;
+    padding: 16px 30px;
+    font-size: var( -- p-font);
+    font-weight: 700;
+    background: var( -- main-color);
+    color: var( -- bg-color);
+    border-radius: 30px;
+    transition: all .40s ease;
+}
+.btn:hover{
+    transform: scale(0,9) translateY(-5px);
+}
+.courses{
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    background-position: center;
+}
+.courses-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+    cursor: pointer;
+    border-radius: 15px;
+    border-color: black;
+}
+.row{
+    background: white;
+    padding: 0px 0px 10px 0px;
+    border-radius: 20px;
+    border-style: outset;
+    border-width: 5px;
+    border-color: black;
+    box-shadow: 0px 5px 40px rgb(19 8 73 / 13%);
+    transition: all .40s ease;
+}
+.row:hover{
+    transform: translateY(-15px);
+}
+.row img{
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 15px 15px 0px 0px;
+}
+.courses-text{
+    padding: 35px 20px;
+}
+.courses-text h5{
+    color: var( -- main-color);
+    font-size: 18px;
+    font-weight: 700;
+}
+.courses-text h3{
+    font-size: 30 px;
+    font-weight: 700;
+    line-height: 34px;
+    margin: 15px 0 15px;
+    transition: all .40s ease;
+}
+.courses-text h3:hover{
+    color: var( -- main-color);
+}
+.courses-text h6{
+    color: #696969;
+    font-size: var( -- p-font);
+    font-weight: 400;
+    Line-height: 30px;
+    Letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+.about{
+    background: url(/FINAL-SOMS/trees.jpg);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+.about-img img{
+    width: 100%;
+    height: auto;
+}
+.about-text{
+    font-size: var(--h2-font);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.about-text p{
+font-size: var( -- p-font);
+color: var( -- second-color);
+font-weight: 500;
+Line-height: 30px;
+margin-bottom: 30px;
+}
+.about-text h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.about-text h5{
+    font-size: 20px;
+    margin-bottom: 40px; 
+    }
+</style>
+
+
+<body>
+
+  <section  style="background-image: url(/static/images/rc1.jpg);
+  background-size: cover;
+  background-position: center;" class="probootstrap-section probootstrap-section-colored">
+  <br><br><br>
+  
+  <h3 style="color: white; font-size: 60px; font-weight: 900; text-shadow: 20px 10px 20px black;">Web-Based Student Offense <br>Management System</h3>
+  <br><br><br><br><br><br><br><br>  
+    <!--<div class="container">
+      <div class="row">
+        <div style = "justify-content: center;" class="col-md-12 text-left section-heading probootstrap-animate">
+          <h2>Welcome RC rising to a new tomorrow today</h2>
+        </div>
+      </div>
+    </div>-->
+  </section>
+
+
+  <section class="courses" id="courses">
+    <div class="center-text">
+      <h5 style="font-weight: 900;">GRADE 11</h5>
+    </div>
+
+    <div class="home-img">
+      
+    </div>
+
+    <div class="courses-content">
+      <div class="row">
+        <a href='anthony'>
+          <img src="/static/images/anthonnew.jpg">
+        </a>
+        <div class="courses-text">
+          <h3>St. Anthony of Padua</h3>
+          <h4>Ma'am Pangilinan, Reah A.</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <a href='charles'>
+          <img src="/static/images/charlesnew.webp">
+        </a>
+        <div class="courses-text">
+          <h3>St. Charles Borromeo</h3>
+          <h4>Sir Stihl Magandam, R.</h4>
+        </div>
+      </div>
+
+	  <div class="row">
+        <a href='berchman'>
+          <img src="/static/images/berchman.jpg">
+        </a>
+        <div class="courses-text">
+          <h3>St. John Berchmans</h3>
+          <h4>Ma'am Calixto, Angel P.</h4>
+        </div>
+      </div>
+
+	  <div class="row">
+        <a href='bosco'>
+          <img src="/static/images/bosco.jpg">
+        </a>
+        <div class="courses-text">
+          <h3>St. John Bosco</h3>
+          <h4>Ma'am Yubili, Josefina N.</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <a href='joseph'>
+          <img src="/static/images/joseph.jpg">
+        </a>
+        <div class="courses-text">
+          <h3>St. Joseph</h3>
+          <h4>Ma'am Pilita Belardo, C.</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <a href='martin'>
+          <img src="/static/images/martin.jpg">
+        </a>
+        <div class="courses-text">
+          <h3>St. Martin de Porres</h3>
+          <h4>Sir Lescano, George G.</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <a href='paul'>
+          <img src="/static/images/paul.jpg">
+        </a>
+        <div class="courses-text">
+          <h3>St. Paul</h3>
+          <h4>Ma'am Diaz, Merry Rose L.</h4>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="courses" id="courses">
+    <div class="center-text">
+      <h5 style="font-weight: 900;">GRADE 12</h5>
+    </div>
+
+    <div class="courses-content">
+      <div class="row">
+        <a href='anne'>
+          <img src="/static/images/anne.webp">
+        </a>
+        <div class="courses-text">
+          <h3>St. Anne</h3>
+          <h4>Ma'am Urtal, Aliza T.</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <a href='faustina'>
+          <img src="/static/images/faustina.jpg">
+        </a>
+        <div class="courses-text">
+          <h3>St. Faustina</h3>
+          <h4>Ma'am Andico, Sherlyn G.</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <a href='mary'>
+          <img src="/static/images/magdalene.webp">
+        </a>
+        <div class="courses-text">
+          <h3>St. Mary Magdalene</h3>
+          <h4>Buenavente, John Russell M.</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <a href='rita'>
+          <img src="/static/images/rita.jpg">
+        </a>
+        <div class="courses-text">
+          <h3>St. Rita of Cascia</h3>
+          <h4>Ma'am Labutap, Ginalyn L.</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <a href='rose'>
+          <img src="/static/images/Saint-rose-of-lima.jpg">
+        </a>
+        <div class="courses-text">
+          <h3>St. Rose of Lima</h3>
+          <h4>Sir Monterroyo, Richard B.</h4>
+        </div>
+      </div>
+
+      <div class="row">
+		<a href='teresa'>
+			<img src="/static/images/teresa.png">
+		</a>
+        <div class="courses-text">
+          <h3>St. Teresa of Calcutta</h3>
+          <h4>Sir Ambid, Allain Piolo D.</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--<section>
+    <div class="about-img">
+      <img src="/FINAL-SOMS/RC LOGO.png" alt="">
+    </div>
+
+    <div class="about-text">
+      <h2>Rogationist College</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <h4>Organized Records</h4>
+      <h5>Easily Accessible</h5>
+    </div>
+  </section>-->
+
+
+
+  <script type="text/javascript" src="/soms-project/js/header.js"></script>
+</body>
+</html>
+
+{% endblock %}

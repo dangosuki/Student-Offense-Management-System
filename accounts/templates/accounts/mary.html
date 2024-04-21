@@ -1,0 +1,90 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<h2 class="section">St. Mary Magdalene</h2>
+
+{% include 'accounts/status.html' %}
+
+<style>
+    #title {
+        margin-left: 20px;
+    }
+    .section {
+        font-weight: bolder;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+</style>
+
+<br>
+
+<div class="row">
+    <div class="col-md-5">
+        <h5 id="title">Students:</h5>
+        <hr>
+        <div class="card card-body">
+
+            <!--<form method="get">
+                {{myFilter.form}}
+
+            <button class="btn btn-primary" type="submit">Search</button>
+            </form>-->
+
+            <table class="table table-sm">
+                <tr>
+                    <th></th>
+                    <th>Student Name</th>
+                    <th>Phone</th>
+                </tr>
+
+                {% for student in students %}
+                <tr>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'maryprofile' student.id %}">View</a></td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.phone}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+    
+
+    <div class="col-md-7">
+        <h5 id="title">Recent Offenses</h5>
+        <hr>
+        <div class="card card-body">
+            
+        <table class="table table-sm">
+            <tr>
+                <th>Offense</th>
+                <th>Category</th>
+                <th>Note</th>
+                <th>Action Given</th>
+                <th>Date Committed</th>
+                <!--<th>Update</th>
+                <th>Remove</th>-->
+            </tr>
+
+            {% for offense in offenses %}
+                <tr>
+                    <td>{{offense.offense}}</td>
+                    <td>{{offense.category}}</td>
+                    <td>{{offense.note}}</td>
+                    <td>{{offense.action_given}}</td>
+                    <td>{{offense.date_created}}</td>
+                    <!--<td><a class="btn btn-sm btn-info" href="{% url 'anthonyupdate_offense' offense.id %}">Update</a></td>
+
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'anthonydelete_offense' offense.id %}">Delete</a></td>-->
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}
+
