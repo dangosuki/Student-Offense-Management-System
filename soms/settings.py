@@ -100,6 +100,7 @@ DATABASES = {
         'HOST': 'viaduct.proxy.rlwy.net',
         'PORT': '39667',
     }
+}
 
 
 # Password validation
