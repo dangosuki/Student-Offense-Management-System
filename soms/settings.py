@@ -91,15 +91,15 @@ WSGI_APPLICATION = 'soms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-
-    #'2024-2025': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': BASE_DIR / 'db.sqlite3',
-    #}
-}
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'abWTuXmWamYjRQOLxVRgHjEhLTFGPGJt',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '39667',
+    }
 
 
 # Password validation
